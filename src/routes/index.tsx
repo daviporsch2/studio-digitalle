@@ -162,9 +162,9 @@ function HeroSection() {
         <p
           className="text-[11px] uppercase tracking-[0.4em] text-gold"
           style={{
-            opacity: curtainsOpen ? 1 : 0,
-            transform: curtainsOpen ? "translateY(0)" : "translateY(20px)",
-            transition: "opacity 1s ease 800ms, transform 1s ease 800ms",
+            opacity: 1,
+            transform: curtainsOpen ? "translateY(0)" : "translateY(8px)",
+            transition: "opacity 0.6s ease 100ms, transform 0.6s ease 100ms",
           }}
         >
           Portfólio · Direção digital
@@ -174,9 +174,9 @@ function HeroSection() {
           <span
             className="block text-cream"
             style={{
-              opacity: curtainsOpen ? 1 : 0,
-              transform: curtainsOpen ? "translateY(0)" : "translateY(30px)",
-              transition: "opacity 1s cubic-bezier(0.22, 1, 0.36, 1) 900ms, transform 1s cubic-bezier(0.22, 1, 0.36, 1) 900ms",
+              opacity: 1,
+              transform: curtainsOpen ? "translateY(0)" : "translateY(12px)",
+              transition: "opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) 200ms, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 200ms",
             }}
           >
             Marketing
@@ -185,9 +185,9 @@ function HeroSection() {
             className="block text-transparent"
             style={{
               WebkitTextStroke: "1px #c9a84c",
-              opacity: curtainsOpen ? 1 : 0,
-              transform: curtainsOpen ? "translateY(0)" : "translateY(30px)",
-              transition: "opacity 1s cubic-bezier(0.22, 1, 0.36, 1) 1050ms, transform 1s cubic-bezier(0.22, 1, 0.36, 1) 1050ms",
+              opacity: 1,
+              transform: curtainsOpen ? "translateY(0)" : "translateY(12px)",
+              transition: "opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) 350ms, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 350ms",
             }}
           >
             que vende
@@ -195,9 +195,9 @@ function HeroSection() {
           <span
             className="block text-cream/80"
             style={{
-              opacity: curtainsOpen ? 1 : 0,
-              transform: curtainsOpen ? "translateY(0)" : "translateY(30px)",
-              transition: "opacity 1s cubic-bezier(0.22, 1, 0.36, 1) 1200ms, transform 1s cubic-bezier(0.22, 1, 0.36, 1) 1200ms",
+              opacity: 1,
+              transform: curtainsOpen ? "translateY(0)" : "translateY(12px)",
+              transition: "opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) 500ms, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 500ms",
             }}
           >
             sem gritar.
@@ -207,9 +207,9 @@ function HeroSection() {
         <p
           className="mt-8 max-w-[46ch] text-base text-cream/70 sm:text-lg"
           style={{
-            opacity: curtainsOpen ? 1 : 0,
-            transform: curtainsOpen ? "translateY(0)" : "translateY(20px)",
-            transition: "opacity 1s ease 1350ms, transform 1s ease 1350ms",
+            opacity: 1,
+            transform: curtainsOpen ? "translateY(0)" : "translateY(8px)",
+            transition: "opacity 0.8s ease 650ms, transform 0.8s ease 650ms",
           }}
         >
           Landing pages, websites, vídeos e imagens desenhados para transformar
@@ -220,9 +220,9 @@ function HeroSection() {
         <div
           className="mt-10 flex flex-wrap items-center gap-4"
           style={{
-            opacity: curtainsOpen ? 1 : 0,
-            transform: curtainsOpen ? "translateY(0)" : "translateY(20px)",
-            transition: "opacity 1s ease 1500ms, transform 1s ease 1500ms",
+            opacity: 1,
+            transform: curtainsOpen ? "translateY(0)" : "translateY(8px)",
+            transition: "opacity 0.8s ease 800ms, transform 0.8s ease 800ms",
           }}
         >
           <a
