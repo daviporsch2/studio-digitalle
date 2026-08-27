@@ -96,13 +96,6 @@ function Index() {
 }
 
 function HeroSection() {
-  const [curtainsOpen, setCurtainsOpen] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setCurtainsOpen(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <section className="relative overflow-hidden bg-forest">
       <div
@@ -124,20 +117,8 @@ function HeroSection() {
         style={{ transform: "translateX(-50%)" }}
       />
 
-      <div
-        className="pointer-events-none absolute inset-y-0 left-0 w-1/2 bg-forest/95 origin-left transition-transform duration-[1100ms]"
-        style={{
-          transform: curtainsOpen ? "scaleX(0)" : "scaleX(1)",
-          transitionTimingFunction: "cubic-bezier(0.7, 0, 0.2, 1)",
-        }}
-      />
-      <div
-        className="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-forest/95 origin-right transition-transform duration-[1100ms]"
-        style={{
-          transform: curtainsOpen ? "scaleX(0)" : "scaleX(1)",
-          transitionTimingFunction: "cubic-bezier(0.7, 0, 0.2, 1)",
-        }}
-      />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/2 bg-forest/95 animate-curtain-left" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-forest/95 animate-curtain-right" />
 
       <div className="relative mx-auto max-w-[1400px] px-6 py-5">
         <nav className="flex items-center justify-between">
@@ -159,58 +140,34 @@ function HeroSection() {
       </div>
 
       <div className="relative mx-auto max-w-[1400px] px-6 pb-24 pt-20 sm:pt-28">
-        <p
-          className="text-[11px] uppercase tracking-[0.4em] text-gold"
-          style={{
-            opacity: 1,
-            transform: curtainsOpen ? "translateY(0)" : "translateY(8px)",
-            transition: "opacity 0.6s ease 100ms, transform 0.6s ease 100ms",
-          }}
-        >
+        <p className="animate-fade-up text-[11px] uppercase tracking-[0.4em] text-gold">
           Portfólio · Direção digital
         </p>
 
         <h1 className="font-display text-5xl font-semibold leading-tight tracking-tight sm:text-7xl lg:text-8xl mt-6 max-w-[18ch]">
           <span
-            className="block text-cream"
-            style={{
-              opacity: 1,
-              transform: curtainsOpen ? "translateY(0)" : "translateY(12px)",
-              transition: "opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) 200ms, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 200ms",
-            }}
+            className="block animate-fade-up text-cream"
+            style={{ animationDelay: "120ms" }}
           >
             Marketing
           </span>
           <span
-            className="block text-transparent"
-            style={{
-              WebkitTextStroke: "1px #c9a84c",
-              opacity: 1,
-              transform: curtainsOpen ? "translateY(0)" : "translateY(12px)",
-              transition: "opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) 350ms, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 350ms",
-            }}
+            className="block animate-fade-up text-transparent"
+            style={{ WebkitTextStroke: "1px #c9a84c", animationDelay: "240ms" }}
           >
             que vende
           </span>
           <span
-            className="block text-cream/80"
-            style={{
-              opacity: 1,
-              transform: curtainsOpen ? "translateY(0)" : "translateY(12px)",
-              transition: "opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) 500ms, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 500ms",
-            }}
+            className="block animate-fade-up text-cream/80"
+            style={{ animationDelay: "360ms" }}
           >
             sem gritar.
           </span>
         </h1>
 
         <p
-          className="mt-8 max-w-[46ch] text-base text-cream/70 sm:text-lg"
-          style={{
-            opacity: 1,
-            transform: curtainsOpen ? "translateY(0)" : "translateY(8px)",
-            transition: "opacity 0.8s ease 650ms, transform 0.8s ease 650ms",
-          }}
+          className="animate-fade-up mt-8 max-w-[46ch] text-base text-cream/70 sm:text-lg"
+          style={{ animationDelay: "480ms" }}
         >
           Landing pages, websites, vídeos e imagens desenhados para transformar
           atenção em receita. Direção de arte cinematográfica, execução de
@@ -218,12 +175,8 @@ function HeroSection() {
         </p>
 
         <div
-          className="mt-10 flex flex-wrap items-center gap-4"
-          style={{
-            opacity: 1,
-            transform: curtainsOpen ? "translateY(0)" : "translateY(8px)",
-            transition: "opacity 0.8s ease 800ms, transform 0.8s ease 800ms",
-          }}
+          className="animate-fade-up mt-10 flex flex-wrap items-center gap-4"
+          style={{ animationDelay: "600ms" }}
         >
           <a
             href="https://wa.me/5567996304930"
