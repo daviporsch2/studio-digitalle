@@ -8,6 +8,7 @@ import videoShootImg from "../assets/video-shoot.jpg";
 import portfolioWatchImg from "../assets/portfolio-watch.jpg";
 import portfolioRealestateImg from "../assets/portfolio-realestate.jpg";
 import portfolioFintechImg from "../assets/portfolio-fintech.jpg";
+import portfolioRestauranteImg from "../assets/portfolio-restaurante.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -90,6 +91,7 @@ function Index() {
       <ServicesSection />
       <PortfolioSection />
       <ResultsSection />
+      <ProcessSection />
       <ContactSection />
       <Footer />
     </main>
@@ -100,7 +102,7 @@ function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-forest">
       <div
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute inset-0 animate-hero-bg"
         style={{
           background:
             "radial-gradient(130% 90% at 50% -10%, #0d7a5f 0%, #064e3b 55%, #04352a 100%)",
@@ -123,7 +125,7 @@ function HeroSection() {
 
       <div className="relative mx-auto max-w-[1400px] px-6 py-5">
         <nav className="flex items-center justify-between">
-          <a href="/" className="flex items-center gap-3">
+          <a href="/" className="flex items-center gap-3 animate-logo-in">
             <img
               src={dpLogo}
               alt="Logo DP — Sua Presença Digital"
@@ -187,6 +189,15 @@ function HeroSection() {
           Landing pages, websites, vídeos e imagens desenhados para transformar
           atenção em receita. Direção de arte cinematográfica, execução de
           conversão.
+        </p>
+        <p
+          className="animate-fade-up mt-4 max-w-[52ch] text-sm text-cream/50 sm:text-base"
+          style={{ animationDelay: "560ms" }}
+        >
+          Na DP, cada projeto nasce de uma estratégia: entendo seu público,
+          desenho a experiência e entrego uma presença digital que trabalha
+          pela sua empresa 24 horas por dia — do primeiro clique ao fechamento
+          da venda.
         </p>
 
         <div
@@ -391,6 +402,13 @@ const portfolioItems = [
     image: portfolioFintechImg,
     imageAlt: "Interface de aplicativo fintech em smartphone com visual premium",
   },
+  {
+    category: "Gastronomia · Alta cozinha",
+    title: "Casa Saffron",
+    result: "Reservas de fim de semana esgotadas em 3 semanas",
+    image: portfolioRestauranteImg,
+    imageAlt: "Chef finalizando prato gourmet em restaurante sofisticado",
+  },
 ];
 
 function PortfolioSection() {
@@ -411,7 +429,7 @@ function PortfolioSection() {
           </span>
         </AnimatedSection>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {portfolioItems.map((item, index) => (
             <PortfolioCard key={item.title} item={item} delay={index * 100} />
           ))}
@@ -507,6 +525,73 @@ function ResultsSection() {
             </div>
           </div>
         </AnimatedSection>
+      </div>
+    </section>
+  );
+}
+
+const processSteps = [
+  {
+    number: "I",
+    title: "Escuta & estratégia",
+    description:
+      "Antes de qualquer pixel, entendo seu negócio, seu público e o que faz o cliente dizer sim. Aqui nasce o plano que guia todo o projeto.",
+  },
+  {
+    number: "II",
+    title: "Direção de arte",
+    description:
+      "Paleta, tipografia e narrativa visual criadas sob medida para a sua marca — nada de templates genéricos que parecem com todo mundo.",
+  },
+  {
+    number: "III",
+    title: "Construção & produção",
+    description:
+      "Landing pages, sites, vídeos e imagens produzidos com técnica cinematográfica e otimizados para carregar rápido e converter.",
+  },
+  {
+    number: "IV",
+    title: "Lançamento & evolução",
+    description:
+      "Entrega em 48h para a primeira versão, acompanhamento dos resultados e ajustes contínuos para sua presença digital vender cada dia mais.",
+  },
+];
+
+function ProcessSection() {
+  return (
+    <section className="bg-cream text-forest">
+      <div className="mx-auto max-w-[1400px] px-6 pb-24">
+        <AnimatedSection className="max-w-[48ch]">
+          <p className="text-[11px] uppercase tracking-[0.35em] text-moss">
+            Ato IV — O método
+          </p>
+          <h2 className="font-display text-4xl font-semibold leading-tight tracking-tight sm:text-5xl mt-4 max-w-[24ch]">
+            Por trás de cada entrega, um processo que não deixa nada ao acaso.
+          </h2>
+          <p className="mt-6 max-w-[52ch] text-base text-forest/70">
+            A DP não vende apenas design bonito. Cada projeto é construído como
+            uma peça de vendas: texto que convence, imagem que segura a atenção
+            e estrutura pensada para transformar visitante em cliente. É assim
+            que sua empresa deixa de ser apenas mais uma no feed e passa a ser
+            lembrada — e procurada.
+          </p>
+        </AnimatedSection>
+
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {processSteps.map((step, index) => (
+            <AnimatedSection key={step.number} delay={index * 100}>
+              <div className="h-full rounded-[16px] bg-forest/5 p-7 ring-1 ring-black/5 transition-colors hover:bg-forest/10">
+                <span className="font-display text-3xl text-gold">
+                  {step.number}
+                </span>
+                <h3 className="font-display mt-3 text-xl font-semibold tracking-tight">
+                  {step.title}
+                </h3>
+                <p className="mt-3 text-sm text-forest/70">{step.description}</p>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -646,14 +731,6 @@ function Footer() {
             <span className="text-[11px] uppercase tracking-[0.25em] text-moss">
               Contato
             </span>
-            <a
-              href="https://instagram.com/dp.suapresencadigital"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-moss"
-            >
-              Instagram · @dp.suapresencadigital
-            </a>
             <a
               href="https://wa.me/5567996304930"
               target="_blank"
