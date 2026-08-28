@@ -647,14 +647,6 @@ function Footer() {
               Contato
             </span>
             <a
-              href="https://wa.me/5567996304930"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-moss"
-            >
-              WhatsApp · (67) 99630-4930
-            </a>
-            <a
               href="https://instagram.com/dp.suapresencadigital"
               target="_blank"
               rel="noopener noreferrer"
