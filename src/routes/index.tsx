@@ -91,6 +91,7 @@ function Index() {
       <ServicesSection />
       <PortfolioSection />
       <ResultsSection />
+      <ProcessSection />
       <ContactSection />
       <Footer />
     </main>
@@ -529,6 +530,73 @@ function ResultsSection() {
   );
 }
 
+const processSteps = [
+  {
+    number: "I",
+    title: "Escuta & estratégia",
+    description:
+      "Antes de qualquer pixel, entendo seu negócio, seu público e o que faz o cliente dizer sim. Aqui nasce o plano que guia todo o projeto.",
+  },
+  {
+    number: "II",
+    title: "Direção de arte",
+    description:
+      "Paleta, tipografia e narrativa visual criadas sob medida para a sua marca — nada de templates genéricos que parecem com todo mundo.",
+  },
+  {
+    number: "III",
+    title: "Construção & produção",
+    description:
+      "Landing pages, sites, vídeos e imagens produzidos com técnica cinematográfica e otimizados para carregar rápido e converter.",
+  },
+  {
+    number: "IV",
+    title: "Lançamento & evolução",
+    description:
+      "Entrega em 48h para a primeira versão, acompanhamento dos resultados e ajustes contínuos para sua presença digital vender cada dia mais.",
+  },
+];
+
+function ProcessSection() {
+  return (
+    <section className="bg-cream text-forest">
+      <div className="mx-auto max-w-[1400px] px-6 pb-24">
+        <AnimatedSection className="max-w-[48ch]">
+          <p className="text-[11px] uppercase tracking-[0.35em] text-moss">
+            Ato IV — O método
+          </p>
+          <h2 className="font-display text-4xl font-semibold leading-tight tracking-tight sm:text-5xl mt-4 max-w-[24ch]">
+            Por trás de cada entrega, um processo que não deixa nada ao acaso.
+          </h2>
+          <p className="mt-6 max-w-[52ch] text-base text-forest/70">
+            A DP não vende apenas design bonito. Cada projeto é construído como
+            uma peça de vendas: texto que convence, imagem que segura a atenção
+            e estrutura pensada para transformar visitante em cliente. É assim
+            que sua empresa deixa de ser apenas mais uma no feed e passa a ser
+            lembrada — e procurada.
+          </p>
+        </AnimatedSection>
+
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {processSteps.map((step, index) => (
+            <AnimatedSection key={step.number} delay={index * 100}>
+              <div className="h-full rounded-[16px] bg-forest/5 p-7 ring-1 ring-black/5 transition-colors hover:bg-forest/10">
+                <span className="font-display text-3xl text-gold">
+                  {step.number}
+                </span>
+                <h3 className="font-display mt-3 text-xl font-semibold tracking-tight">
+                  {step.title}
+                </h3>
+                <p className="mt-3 text-sm text-forest/70">{step.description}</p>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ContactSection() {
   return (
     <section id="contato" className="relative overflow-hidden bg-forest text-cream">
@@ -663,14 +731,6 @@ function Footer() {
             <span className="text-[11px] uppercase tracking-[0.25em] text-moss">
               Contato
             </span>
-            <a
-              href="https://instagram.com/dp.suapresencadigital"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-moss"
-            >
-              Instagram · @dp.suapresencadigital
-            </a>
             <a
               href="https://wa.me/5567996304930"
               target="_blank"
