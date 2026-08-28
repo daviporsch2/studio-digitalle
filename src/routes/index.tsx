@@ -101,7 +101,7 @@ function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-forest">
       <div
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute inset-0 animate-hero-bg"
         style={{
           background:
             "radial-gradient(130% 90% at 50% -10%, #0d7a5f 0%, #064e3b 55%, #04352a 100%)",
@@ -124,7 +124,7 @@ function HeroSection() {
 
       <div className="relative mx-auto max-w-[1400px] px-6 py-5">
         <nav className="flex items-center justify-between">
-          <a href="/" className="flex items-center gap-3">
+          <a href="/" className="flex items-center gap-3 animate-logo-in">
             <img
               src={dpLogo}
               alt="Logo DP — Sua Presença Digital"
@@ -188,6 +188,15 @@ function HeroSection() {
           Landing pages, websites, vídeos e imagens desenhados para transformar
           atenção em receita. Direção de arte cinematográfica, execução de
           conversão.
+        </p>
+        <p
+          className="animate-fade-up mt-4 max-w-[52ch] text-sm text-cream/50 sm:text-base"
+          style={{ animationDelay: "560ms" }}
+        >
+          Na DP, cada projeto nasce de uma estratégia: entendo seu público,
+          desenho a experiência e entrego uma presença digital que trabalha
+          pela sua empresa 24 horas por dia — do primeiro clique ao fechamento
+          da venda.
         </p>
 
         <div
@@ -392,6 +401,13 @@ const portfolioItems = [
     image: portfolioFintechImg,
     imageAlt: "Interface de aplicativo fintech em smartphone com visual premium",
   },
+  {
+    category: "Gastronomia · Alta cozinha",
+    title: "Casa Saffron",
+    result: "Reservas de fim de semana esgotadas em 3 semanas",
+    image: portfolioRestauranteImg,
+    imageAlt: "Chef finalizando prato gourmet em restaurante sofisticado",
+  },
 ];
 
 function PortfolioSection() {
@@ -412,7 +428,7 @@ function PortfolioSection() {
           </span>
         </AnimatedSection>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {portfolioItems.map((item, index) => (
             <PortfolioCard key={item.title} item={item} delay={index * 100} />
           ))}
