@@ -619,9 +619,24 @@ function Footer() {
       <div className="mx-auto max-w-[1400px] px-6 py-14">
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <span className="font-display text-2xl font-semibold tracking-tight">
-              Davi Porsch
-            </span>
+            <div className="flex items-center gap-3">
+              <img
+                src={dpLogo}
+                alt="Logo DP — Sua Presença Digital"
+                loading="lazy"
+                width={1024}
+                height={1024}
+                className="h-12 w-12 object-contain"
+              />
+              <span className="leading-tight">
+                <span className="font-display block text-2xl font-semibold tracking-tight">
+                  DP
+                </span>
+                <span className="block text-[10px] uppercase tracking-[0.22em] text-moss">
+                  Sua presença digital
+                </span>
+              </span>
+            </div>
             <p className="mt-3 max-w-[38ch] text-sm text-forest/60">
               Marketing digital com direção cinematográfica. De Campo Grande para
               o mundo.
@@ -640,25 +655,25 @@ function Footer() {
               WhatsApp · (67) 99630-4930
             </a>
             <a
-              href="https://instagram.com/daviporsch"
+              href="https://instagram.com/dp.suapresencadigital"
               target="_blank"
               rel="noopener noreferrer"
               className="transition-colors hover:text-moss"
             >
-              Instagram · @daviporsch
+              Instagram · @dp.suapresencadigital
             </a>
             <a
-              href="https://linkedin.com/in/daviporsch"
+              href="https://wa.me/5567996304930"
               target="_blank"
               rel="noopener noreferrer"
               className="transition-colors hover:text-moss"
             >
-              LinkedIn · Davi Porsch
+              WhatsApp · (67) 99630-4930
             </a>
           </div>
         </div>
         <div className="mt-12 flex flex-col gap-2 border-t border-forest/15 pt-6 text-xs text-forest/45 sm:flex-row sm:justify-between">
-          <span>© 2025 Davi Porsch — Todos os direitos reservados.</span>
+          <span>© 2026 DP — Sua Presença Digital. Todos os direitos reservados.</span>
           <span>Feito à mão, cena por cena.</span>
         </div>
       </div>
