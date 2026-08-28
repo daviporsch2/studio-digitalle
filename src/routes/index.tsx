@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
+import dpLogo from "../assets/dp-logo.png";
 import landingPageImg from "../assets/landing-page.jpg";
 import websiteImg from "../assets/website.jpg";
 import videoShootImg from "../assets/video-shoot.jpg";
