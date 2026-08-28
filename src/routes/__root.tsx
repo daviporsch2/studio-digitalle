@@ -77,14 +77,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Davi Porsch — Marketing Digital & Design" },
-      { name: "description", content: "Portfólio de Davi Porsch: landing pages, websites, vídeos e imagens para empresas que querem vender mais e atrair clientes." },
-      { name: "author", content: "Davi Porsch" },
-      { property: "og:title", content: "Davi Porsch — Marketing Digital & Design" },
+      { title: "DP — Sua Presença Digital" },
+      { name: "description", content: "DP — Sua Presença Digital: landing pages, websites, vídeos e imagens para empresas que querem vender mais e atrair clientes." },
+      { name: "author", content: "DP — Sua Presença Digital" },
+      { property: "og:title", content: "DP — Sua Presença Digital" },
       { property: "og:description", content: "Landing pages, websites, vídeos e imagens para empresas que querem vender mais." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@daviporsch" },
     ],
     links: [
       {
@@ -97,7 +96,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@400;500;600;700&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
     ],
   }),
   shellComponent: RootShell,

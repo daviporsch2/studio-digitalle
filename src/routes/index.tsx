@@ -12,13 +12,13 @@ import portfolioFintechImg from "../assets/portfolio-fintech.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Davi Porsch — Marketing Digital & Design" },
+      { title: "DP — Sua Presença Digital" },
       {
         name: "description",
         content:
-          "Portfólio de Davi Porsch: landing pages, websites, vídeos e imagens para empresas que querem vender mais.",
+          "DP — Sua Presença Digital: landing pages, websites, vídeos e imagens para empresas que querem vender mais.",
       },
-      { property: "og:title", content: "Davi Porsch — Marketing Digital & Design" },
+      { property: "og:title", content: "DP — Sua Presença Digital" },
       {
         property: "og:description",
         content:
@@ -123,9 +123,23 @@ function HeroSection() {
 
       <div className="relative mx-auto max-w-[1400px] px-6 py-5">
         <nav className="flex items-center justify-between">
-          <span className="font-display text-lg font-semibold tracking-tight text-cream">
-            Davi Porsch
-          </span>
+          <a href="/" className="flex items-center gap-3">
+            <img
+              src={dpLogo}
+              alt="Logo DP — Sua Presença Digital"
+              width={1024}
+              height={1024}
+              className="h-10 w-10 object-contain"
+            />
+            <span className="leading-tight">
+              <span className="font-display block text-lg font-semibold tracking-tight text-cream">
+                DP
+              </span>
+              <span className="block text-[10px] uppercase tracking-[0.22em] text-gold">
+                Sua presença digital
+              </span>
+            </span>
+          </a>
           <span className="hidden text-[11px] uppercase tracking-[0.28em] text-cream/50 sm:block">
             Marketing Digital · 2025
           </span>
