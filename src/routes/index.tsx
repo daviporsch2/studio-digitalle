@@ -8,6 +8,7 @@ import videoShootImg from "../assets/video-shoot.jpg";
 import portfolioWatchImg from "../assets/portfolio-watch.jpg";
 import portfolioRealestateImg from "../assets/portfolio-realestate.jpg";
 import portfolioFintechImg from "../assets/portfolio-fintech.jpg";
+import portfolioRestauranteImg from "../assets/portfolio-restaurante.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
