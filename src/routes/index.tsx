@@ -227,16 +227,11 @@ function HeroSection() {
           da venda.
         </p>
 
-          Na DP, cada projeto nasce de uma estratégia: entendo seu público,
-          desenho a experiência e entrego uma presença digital que trabalha
-          pela sua empresa 24 horas por dia — do primeiro clique ao fechamento
-          da venda.
-        </p>
-
         <div
           className="animate-fade-up mt-10 flex flex-wrap items-center gap-4"
-          style={{ animationDelay: "600ms" }}
+          style={{ animationDelay: "880ms" }}
         >
+
           <a
             href="https://wa.me/5567996304930"
             target="_blank"
