@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+// hero particles + glow ring added
 import { useEffect, useRef, useState } from "react";
 
 import dpLogo from "../assets/dp-logo.png";
