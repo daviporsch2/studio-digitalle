@@ -216,6 +216,97 @@
   animation: logo-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
 }
 
+/* ---- Hero: animações extras ---- */
+@keyframes text-shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes aurora {
+  0% {
+    transform: translate3d(-8%, -4%, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(8%, 6%, 0) rotate(8deg);
+  }
+  100% {
+    transform: translate3d(-8%, -4%, 0) rotate(0deg);
+  }
+}
+
+@keyframes line-sweep {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes word-in {
+  from {
+    opacity: 0;
+    transform: translateY(90%) rotate(3deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@utility animate-text-shine {
+  background-image: linear-gradient(
+    100deg,
+    #f5f0e0 0%,
+    #e8d5a3 25%,
+    #ffe9a8 40%,
+    #c9a84c 55%,
+    #f5f0e0 75%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: text-shine 5s linear infinite;
+}
+
+@utility animate-glow-pulse {
+  animation: glow-pulse 6s ease-in-out infinite;
+}
+
+@utility animate-aurora {
+  animation: aurora 18s ease-in-out infinite;
+}
+
+@utility animate-line-sweep {
+  animation: line-sweep 5s cubic-bezier(0.6, 0, 0.3, 1) infinite;
+}
+
+@utility animate-word-in {
+  animation: word-in 1.05s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+
 /* Hide Lovable badge */
 #lovable-badge {
   display: none !important;

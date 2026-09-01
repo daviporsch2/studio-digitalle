@@ -105,23 +105,41 @@ function HeroSection() {
         className="pointer-events-none absolute inset-0 animate-hero-bg"
         style={{
           background:
-            "radial-gradient(130% 90% at 50% -10%, #0d7a5f 0%, #064e3b 55%, #04352a 100%)",
+            "radial-gradient(130% 90% at 50% -10%, #14a37a 0%, #0a6a51 45%, #04352a 100%)",
         }}
       />
+      {/* aurora dourada em movimento */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.15]"
+        className="pointer-events-none absolute -inset-[20%] animate-aurora opacity-60 blur-3xl"
+        style={{
+          background:
+            "radial-gradient(38% 32% at 22% 30%, rgba(201,168,76,.35) 0%, transparent 70%), radial-gradient(34% 30% at 78% 20%, rgba(20,163,122,.45) 0%, transparent 70%)",
+        }}
+      />
+      {/* halo pulsante atrás do título */}
+      <div
+        className="pointer-events-none absolute left-1/3 top-1/3 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 animate-glow-pulse rounded-full blur-[110px]"
+        style={{ background: "rgba(232,213,163,.22)" }}
+      />
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.18]"
         style={{
           backgroundImage:
-            "repeating-linear-gradient(90deg, transparent 0 79px, rgba(201,168,76,.35) 79px 80px)",
+            "repeating-linear-gradient(90deg, transparent 0 79px, rgba(201,168,76,.4) 79px 80px)",
         }}
       />
       <div
         className="pointer-events-none absolute left-1/2 top-0 h-full w-px bg-gradient-to-b from-transparent via-gold/50 to-transparent"
         style={{ transform: "translateX(-50%)" }}
       />
+      {/* feixe de luz descendo */}
+      <div className="pointer-events-none absolute left-1/2 top-0 h-full w-[2px] -translate-x-1/2 overflow-hidden">
+        <div className="animate-line-sweep h-1/3 w-full bg-gradient-to-b from-transparent via-gold to-transparent" />
+      </div>
 
       <div className="pointer-events-none absolute inset-y-0 left-0 w-1/2 bg-forest/95 animate-curtain-left" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-forest/95 animate-curtain-right" />
+
 
       <div className="relative mx-auto max-w-[1400px] px-6 py-5">
         <nav className="flex items-center justify-between">
@@ -157,42 +175,51 @@ function HeroSection() {
       </div>
 
       <div className="relative mx-auto max-w-[1400px] px-6 pb-24 pt-20 sm:pt-28">
-        <p className="animate-fade-up text-[11px] uppercase tracking-[0.4em] text-gold">
+        <p className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-[11px] uppercase tracking-[0.32em] text-gold-light">
+          <span className="h-1.5 w-1.5 animate-glow-pulse rounded-full bg-gold" />
           Portfólio · Direção digital
         </p>
 
-        <h1 className="font-display text-5xl font-semibold leading-tight tracking-tight sm:text-7xl lg:text-8xl mt-6 max-w-[18ch]">
-          <span
-            className="block animate-fade-up text-cream"
-            style={{ animationDelay: "120ms" }}
-          >
-            Marketing
+        <h1 className="font-display text-5xl font-semibold leading-[1.02] tracking-tight sm:text-7xl lg:text-8xl mt-6 max-w-[18ch]">
+          <span className="block overflow-hidden">
+            <span
+              className="block animate-word-in text-cream"
+              style={{ animationDelay: "120ms" }}
+            >
+              Marketing
+            </span>
           </span>
-          <span
-            className="block animate-fade-up text-transparent"
-            style={{ WebkitTextStroke: "1px #c9a84c", animationDelay: "240ms" }}
-          >
-            que vende
+          <span className="block overflow-hidden">
+            <span
+              className="animate-word-in animate-text-shine block"
+              style={{ animationDelay: "300ms" }}
+            >
+              que vende
+            </span>
           </span>
-          <span
-            className="block animate-fade-up text-cream/80"
-            style={{ animationDelay: "360ms" }}
-          >
-            sem gritar.
+          <span className="block overflow-hidden">
+            <span
+              className="block animate-word-in text-cream/85"
+              style={{ animationDelay: "480ms" }}
+            >
+              sem gritar.
+            </span>
           </span>
         </h1>
 
         <p
-          className="animate-fade-up mt-8 max-w-[46ch] text-base text-cream/70 sm:text-lg"
-          style={{ animationDelay: "480ms" }}
+          className="animate-fade-up mt-8 max-w-[46ch] text-base text-cream/85 sm:text-lg"
+          style={{ animationDelay: "660ms" }}
         >
           Landing pages, websites, vídeos e imagens desenhados para transformar
-          atenção em receita. Direção de arte cinematográfica, execução de
-          conversão.
+          atenção em receita.{" "}
+          <span className="text-gold-light">
+            Direção de arte cinematográfica, execução de conversão.
+          </span>
         </p>
         <p
-          className="animate-fade-up mt-4 max-w-[52ch] text-sm text-cream/50 sm:text-base"
-          style={{ animationDelay: "560ms" }}
+          className="animate-fade-up mt-4 max-w-[52ch] text-sm text-cream/65 sm:text-base"
+          style={{ animationDelay: "760ms" }}
         >
           Na DP, cada projeto nasce de uma estratégia: entendo seu público,
           desenho a experiência e entrego uma presença digital que trabalha
@@ -202,8 +229,9 @@ function HeroSection() {
 
         <div
           className="animate-fade-up mt-10 flex flex-wrap items-center gap-4"
-          style={{ animationDelay: "600ms" }}
+          style={{ animationDelay: "880ms" }}
         >
+
           <a
             href="https://wa.me/5567996304930"
             target="_blank"
@@ -642,61 +670,131 @@ function ContactSection() {
           </AnimatedSection>
 
           <AnimatedSection delay={150}>
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="rounded-[18px] bg-cream/5 p-7 ring-1 ring-cream/15"
-            >
-              <div className="space-y-4">
-                <div>
-                  <label className="text-[11px] uppercase tracking-[0.2em] text-cream/60">
-                    Nome
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Seu nome"
-                    className="mt-1 w-full rounded-[10px] bg-forest/40 px-4 py-3 text-sm text-cream placeholder:text-cream/35 outline-none ring-1 ring-cream/15 focus:ring-gold"
-                  />
-                </div>
-                <div>
-                  <label className="text-[11px] uppercase tracking-[0.2em] text-cream/60">
-                    Empresa
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Nome da empresa"
-                    className="mt-1 w-full rounded-[10px] bg-forest/40 px-4 py-3 text-sm text-cream placeholder:text-cream/35 outline-none ring-1 ring-cream/15 focus:ring-gold"
-                  />
-                </div>
-                <div>
-                  <label className="text-[11px] uppercase tracking-[0.2em] text-cream/60">
-                    O que precisa
-                  </label>
-                  <select className="mt-1 w-full rounded-[10px] bg-forest/40 px-4 py-3 text-sm text-cream outline-none ring-1 ring-cream/15 focus:ring-gold">
-                    <option>Landing page</option>
-                    <option>Website institucional</option>
-                    <option>Vídeo & imagens</option>
-                    <option>Projeto completo</option>
-                  </select>
-                </div>
-                <a
-                  href="https://wa.me/5567996304930"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex w-full items-center justify-center rounded-[10px] bg-gold px-4 py-3 text-sm font-semibold text-forest ring-1 ring-gold transition-transform hover:-translate-y-0.5"
-                >
-                  Enviar pelo WhatsApp
-                </a>
-                <p className="text-center text-xs text-cream/40">
-                  Sem spam. Resposta humanizada.
-                </p>
-              </div>
-            </form>
+            <WhatsAppForm />
           </AnimatedSection>
+
         </div>
       </div>
     </section>
   );
 }
+
+const SERVICE_OPTIONS = [
+  {
+    value: "Landing page",
+    detail:
+      "uma landing page de alta conversão, com direção de arte cinematográfica e estrutura pensada para transformar visitante em cliente",
+  },
+  {
+    value: "Website institucional",
+    detail:
+      "um site institucional com design de sistema, performance e conteúdo que sustenta a marca por anos",
+  },
+  {
+    value: "Vídeo & imagens",
+    detail:
+      "produção de vídeos e imagens para redes sociais e anúncios, com estética premium que segura a atenção",
+  },
+  {
+    value: "Projeto completo",
+    detail:
+      "um projeto completo: estratégia, arte, produção de vídeo/imagem e lançamento da presença digital",
+  },
+];
+
+function WhatsAppForm() {
+  const [nome, setNome] = useState("");
+  const [empresa, setEmpresa] = useState("");
+  const [servico, setServico] = useState(SERVICE_OPTIONS[0]!.value);
+
+  const selected =
+    SERVICE_OPTIONS.find((o) => o.value === servico) ?? SERVICE_OPTIONS[0]!;
+
+  const mensagem = [
+    `Olá, Davi! Aqui é ${nome.trim() || "[seu nome]"}${
+      empresa.trim() ? `, da ${empresa.trim()}` : ""
+    }.`,
+    "",
+    `Vim pelo site da DP — Sua Presença Digital e tenho interesse em ${selected.value}.`,
+    `O que eu procuro: ${selected.detail}.`,
+    "",
+    "Pode me enviar um plano claro de como elevar minha presença digital e vender mais?",
+  ].join("\n");
+
+  const href = `https://wa.me/5567996304930?text=${encodeURIComponent(mensagem)}`;
+
+  return (
+    <form
+      onSubmit={(e) => e.preventDefault()}
+      className="rounded-[18px] bg-cream/5 p-7 ring-1 ring-cream/15"
+    >
+      <div className="space-y-4">
+        <div>
+          <label className="text-[11px] uppercase tracking-[0.2em] text-cream/60">
+            Nome
+          </label>
+          <input
+            type="text"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            placeholder="Seu nome"
+            className="mt-1 w-full rounded-[10px] bg-forest/40 px-4 py-3 text-sm text-cream placeholder:text-cream/35 outline-none ring-1 ring-cream/15 focus:ring-gold"
+          />
+        </div>
+        <div>
+          <label className="text-[11px] uppercase tracking-[0.2em] text-cream/60">
+            Empresa
+          </label>
+          <input
+            type="text"
+            value={empresa}
+            onChange={(e) => setEmpresa(e.target.value)}
+            placeholder="Nome da empresa"
+            className="mt-1 w-full rounded-[10px] bg-forest/40 px-4 py-3 text-sm text-cream placeholder:text-cream/35 outline-none ring-1 ring-cream/15 focus:ring-gold"
+          />
+        </div>
+        <div>
+          <label className="text-[11px] uppercase tracking-[0.2em] text-cream/60">
+            O que precisa
+          </label>
+          <select
+            value={servico}
+            onChange={(e) => setServico(e.target.value)}
+            className="mt-1 w-full rounded-[10px] bg-forest/40 px-4 py-3 text-sm text-cream outline-none ring-1 ring-cream/15 focus:ring-gold"
+          >
+            {SERVICE_OPTIONS.map((o) => (
+              <option key={o.value} value={o.value} className="text-forest">
+                {o.value}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="rounded-[10px] bg-forest/40 p-4 ring-1 ring-cream/10">
+          <p className="text-[10px] uppercase tracking-[0.22em] text-gold">
+            Prévia da mensagem
+          </p>
+          <p className="mt-2 whitespace-pre-line text-xs leading-relaxed text-cream/60">
+            {mensagem}
+          </p>
+        </div>
+
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex w-full items-center justify-center rounded-[10px] bg-gold px-4 py-3 text-sm font-semibold text-forest ring-1 ring-gold transition-transform hover:-translate-y-0.5"
+        >
+          Enviar pelo WhatsApp
+        </a>
+        <p className="text-center text-xs text-cream/40">
+          Sem spam. Resposta humanizada.
+        </p>
+      </div>
+    </form>
+  );
+}
+
 
 function Footer() {
   return (
