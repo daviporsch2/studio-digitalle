@@ -651,6 +651,123 @@ function ContactSection() {
   );
 }
 
+const SERVICE_OPTIONS = [
+  {
+    value: "Landing page",
+    detail:
+      "uma landing page de alta conversão, com direção de arte cinematográfica e estrutura pensada para transformar visitante em cliente",
+  },
+  {
+    value: "Website institucional",
+    detail:
+      "um site institucional com design de sistema, performance e conteúdo que sustenta a marca por anos",
+  },
+  {
+    value: "Vídeo & imagens",
+    detail:
+      "produção de vídeos e imagens para redes sociais e anúncios, com estética premium que segura a atenção",
+  },
+  {
+    value: "Projeto completo",
+    detail:
+      "um projeto completo: estratégia, arte, produção de vídeo/imagem e lançamento da presença digital",
+  },
+];
+
+function WhatsAppForm() {
+  const [nome, setNome] = useState("");
+  const [empresa, setEmpresa] = useState("");
+  const [servico, setServico] = useState(SERVICE_OPTIONS[0].value);
+
+  const selected =
+    SERVICE_OPTIONS.find((o) => o.value === servico) ?? SERVICE_OPTIONS[0];
+
+  const mensagem = [
+    `Olá, Davi! Aqui é ${nome.trim() || "[seu nome]"}${
+      empresa.trim() ? `, da ${empresa.trim()}` : ""
+    }.`,
+    "",
+    `Vim pelo site da DP — Sua Presença Digital e tenho interesse em ${selected.value}.`,
+    `O que eu procuro: ${selected.detail}.`,
+    "",
+    "Pode me enviar um plano claro de como elevar minha presença digital e vender mais?",
+  ].join("\n");
+
+  const href = `https://wa.me/5567996304930?text=${encodeURIComponent(mensagem)}`;
+
+  return (
+    <form
+      onSubmit={(e) => e.preventDefault()}
+      className="rounded-[18px] bg-cream/5 p-7 ring-1 ring-cream/15"
+    >
+      <div className="space-y-4">
+        <div>
+          <label className="text-[11px] uppercase tracking-[0.2em] text-cream/60">
+            Nome
+          </label>
+          <input
+            type="text"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            placeholder="Seu nome"
+            className="mt-1 w-full rounded-[10px] bg-forest/40 px-4 py-3 text-sm text-cream placeholder:text-cream/35 outline-none ring-1 ring-cream/15 focus:ring-gold"
+          />
+        </div>
+        <div>
+          <label className="text-[11px] uppercase tracking-[0.2em] text-cream/60">
+            Empresa
+          </label>
+          <input
+            type="text"
+            value={empresa}
+            onChange={(e) => setEmpresa(e.target.value)}
+            placeholder="Nome da empresa"
+            className="mt-1 w-full rounded-[10px] bg-forest/40 px-4 py-3 text-sm text-cream placeholder:text-cream/35 outline-none ring-1 ring-cream/15 focus:ring-gold"
+          />
+        </div>
+        <div>
+          <label className="text-[11px] uppercase tracking-[0.2em] text-cream/60">
+            O que precisa
+          </label>
+          <select
+            value={servico}
+            onChange={(e) => setServico(e.target.value)}
+            className="mt-1 w-full rounded-[10px] bg-forest/40 px-4 py-3 text-sm text-cream outline-none ring-1 ring-cream/15 focus:ring-gold"
+          >
+            {SERVICE_OPTIONS.map((o) => (
+              <option key={o.value} value={o.value} className="text-forest">
+                {o.value}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="rounded-[10px] bg-forest/40 p-4 ring-1 ring-cream/10">
+          <p className="text-[10px] uppercase tracking-[0.22em] text-gold">
+            Prévia da mensagem
+          </p>
+          <p className="mt-2 whitespace-pre-line text-xs leading-relaxed text-cream/60">
+            {mensagem}
+          </p>
+        </div>
+
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex w-full items-center justify-center rounded-[10px] bg-gold px-4 py-3 text-sm font-semibold text-forest ring-1 ring-gold transition-transform hover:-translate-y-0.5"
+        >
+          Enviar pelo WhatsApp
+        </a>
+        <p className="text-center text-xs text-cream/40">
+          Sem spam. Resposta humanizada.
+        </p>
+      </div>
+    </form>
+  );
+}
+
+
 function Footer() {
   return (
     <footer className="bg-cream text-forest">
