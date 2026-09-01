@@ -105,23 +105,41 @@ function HeroSection() {
         className="pointer-events-none absolute inset-0 animate-hero-bg"
         style={{
           background:
-            "radial-gradient(130% 90% at 50% -10%, #0d7a5f 0%, #064e3b 55%, #04352a 100%)",
+            "radial-gradient(130% 90% at 50% -10%, #14a37a 0%, #0a6a51 45%, #04352a 100%)",
         }}
       />
+      {/* aurora dourada em movimento */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.15]"
+        className="pointer-events-none absolute -inset-[20%] animate-aurora opacity-60 blur-3xl"
+        style={{
+          background:
+            "radial-gradient(38% 32% at 22% 30%, rgba(201,168,76,.35) 0%, transparent 70%), radial-gradient(34% 30% at 78% 20%, rgba(20,163,122,.45) 0%, transparent 70%)",
+        }}
+      />
+      {/* halo pulsante atrás do título */}
+      <div
+        className="pointer-events-none absolute left-1/3 top-1/3 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 animate-glow-pulse rounded-full blur-[110px]"
+        style={{ background: "rgba(232,213,163,.22)" }}
+      />
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.18]"
         style={{
           backgroundImage:
-            "repeating-linear-gradient(90deg, transparent 0 79px, rgba(201,168,76,.35) 79px 80px)",
+            "repeating-linear-gradient(90deg, transparent 0 79px, rgba(201,168,76,.4) 79px 80px)",
         }}
       />
       <div
         className="pointer-events-none absolute left-1/2 top-0 h-full w-px bg-gradient-to-b from-transparent via-gold/50 to-transparent"
         style={{ transform: "translateX(-50%)" }}
       />
+      {/* feixe de luz descendo */}
+      <div className="pointer-events-none absolute left-1/2 top-0 h-full w-[2px] -translate-x-1/2 overflow-hidden">
+        <div className="animate-line-sweep h-1/3 w-full bg-gradient-to-b from-transparent via-gold to-transparent" />
+      </div>
 
       <div className="pointer-events-none absolute inset-y-0 left-0 w-1/2 bg-forest/95 animate-curtain-left" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-forest/95 animate-curtain-right" />
+
 
       <div className="relative mx-auto max-w-[1400px] px-6 py-5">
         <nav className="flex items-center justify-between">
