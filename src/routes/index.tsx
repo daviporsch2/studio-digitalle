@@ -244,7 +244,7 @@ function HeroSection() {
         </h1>
 
         <p
-          className="animate-fade-up mt-8 max-w-[46ch] text-base text-cream/85 sm:text-lg"
+          className="animate-fade-up mt-8 max-w-[46ch] text-base text-cream sm:text-lg"
           style={{ animationDelay: "660ms" }}
         >
           Landing pages, websites, vídeos e imagens desenhados para transformar
@@ -254,7 +254,7 @@ function HeroSection() {
           </span>
         </p>
         <p
-          className="animate-fade-up mt-4 max-w-[52ch] text-sm text-cream/65 sm:text-base"
+          className="animate-fade-up mt-4 max-w-[52ch] text-sm text-cream/85 sm:text-base"
           style={{ animationDelay: "760ms" }}
         >
           Na DP, cada projeto nasce de uma estratégia: entendo seu público,
@@ -761,7 +761,10 @@ function WhatsAppForm() {
 
   return (
     <form
-      onSubmit={(e) => e.preventDefault()}
+      onSubmit={(e) => {
+        e.preventDefault();
+        window.open(href, "_blank", "noopener,noreferrer");
+      }}
       className="rounded-[18px] bg-cream/5 p-7 ring-1 ring-cream/15"
     >
       <div className="space-y-4">
@@ -806,23 +809,12 @@ function WhatsAppForm() {
           </select>
         </div>
 
-        <div className="rounded-[10px] bg-forest/40 p-4 ring-1 ring-cream/10">
-          <p className="text-[10px] uppercase tracking-[0.22em] text-gold">
-            Prévia da mensagem
-          </p>
-          <p className="mt-2 whitespace-pre-line text-xs leading-relaxed text-cream/60">
-            {mensagem}
-          </p>
-        </div>
-
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          type="submit"
           className="flex w-full items-center justify-center rounded-[10px] bg-gold px-4 py-3 text-sm font-semibold text-forest ring-1 ring-gold transition-transform hover:-translate-y-0.5"
         >
           Enviar pelo WhatsApp
-        </a>
+        </button>
         <p className="text-center text-xs text-cream/40">
           Sem spam. Resposta humanizada.
         </p>
