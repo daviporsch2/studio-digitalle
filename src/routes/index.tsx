@@ -102,12 +102,48 @@ function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-forest">
       <div
-        className="pointer-events-none absolute inset-0 animate-hero-bg"
+        className="pointer-events-none absolute inset-0 animate-hero-bg animate-hue-flow"
         style={{
           background:
-            "radial-gradient(130% 90% at 50% -10%, #14a37a 0%, #0a6a51 45%, #04352a 100%)",
+            "radial-gradient(130% 90% at 50% -10%, #17b489 0%, #0b7a5c 45%, #032a21 100%)",
         }}
       />
+      {/* anel de luz girando atrás do título */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-[42%] h-[720px] w-[720px] animate-spin-slower rounded-full opacity-25 blur-2xl"
+        style={{
+          background:
+            "conic-gradient(from 0deg, transparent 0%, rgba(255,220,140,.55) 12%, transparent 26%, transparent 55%, rgba(23,180,137,.6) 70%, transparent 85%)",
+          transform: "translate(-50%, -50%)",
+        }}
+      />
+      {/* partículas douradas subindo */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        {[
+          { left: "8%", size: 5, dur: 11, delay: 0 },
+          { left: "18%", size: 3, dur: 14, delay: 3 },
+          { left: "32%", size: 4, dur: 12, delay: 6 },
+          { left: "47%", size: 3, dur: 16, delay: 1.5 },
+          { left: "61%", size: 5, dur: 13, delay: 4.5 },
+          { left: "74%", size: 3, dur: 15, delay: 2 },
+          { left: "86%", size: 4, dur: 12, delay: 7 },
+          { left: "94%", size: 3, dur: 17, delay: 5 },
+        ].map((p, i) => (
+          <span
+            key={i}
+            className="animate-particle absolute bottom-[-4%] rounded-full"
+            style={{
+              left: p.left,
+              width: p.size,
+              height: p.size,
+              background: "#ffe9a8",
+              boxShadow: "0 0 12px 2px rgba(255,220,140,.75)",
+              animationDuration: `${p.dur}s`,
+              animationDelay: `${p.delay}s`,
+            }}
+          />
+        ))}
+      </div>
       {/* aurora dourada em movimento */}
       <div
         className="pointer-events-none absolute -inset-[20%] animate-aurora opacity-60 blur-3xl"
