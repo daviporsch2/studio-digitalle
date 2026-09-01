@@ -642,56 +642,9 @@ function ContactSection() {
           </AnimatedSection>
 
           <AnimatedSection delay={150}>
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="rounded-[18px] bg-cream/5 p-7 ring-1 ring-cream/15"
-            >
-              <div className="space-y-4">
-                <div>
-                  <label className="text-[11px] uppercase tracking-[0.2em] text-cream/60">
-                    Nome
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Seu nome"
-                    className="mt-1 w-full rounded-[10px] bg-forest/40 px-4 py-3 text-sm text-cream placeholder:text-cream/35 outline-none ring-1 ring-cream/15 focus:ring-gold"
-                  />
-                </div>
-                <div>
-                  <label className="text-[11px] uppercase tracking-[0.2em] text-cream/60">
-                    Empresa
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Nome da empresa"
-                    className="mt-1 w-full rounded-[10px] bg-forest/40 px-4 py-3 text-sm text-cream placeholder:text-cream/35 outline-none ring-1 ring-cream/15 focus:ring-gold"
-                  />
-                </div>
-                <div>
-                  <label className="text-[11px] uppercase tracking-[0.2em] text-cream/60">
-                    O que precisa
-                  </label>
-                  <select className="mt-1 w-full rounded-[10px] bg-forest/40 px-4 py-3 text-sm text-cream outline-none ring-1 ring-cream/15 focus:ring-gold">
-                    <option>Landing page</option>
-                    <option>Website institucional</option>
-                    <option>Vídeo & imagens</option>
-                    <option>Projeto completo</option>
-                  </select>
-                </div>
-                <a
-                  href="https://wa.me/5567996304930"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex w-full items-center justify-center rounded-[10px] bg-gold px-4 py-3 text-sm font-semibold text-forest ring-1 ring-gold transition-transform hover:-translate-y-0.5"
-                >
-                  Enviar pelo WhatsApp
-                </a>
-                <p className="text-center text-xs text-cream/40">
-                  Sem spam. Resposta humanizada.
-                </p>
-              </div>
-            </form>
+            <WhatsAppForm />
           </AnimatedSection>
+
         </div>
       </div>
     </section>
