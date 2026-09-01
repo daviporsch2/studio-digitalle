@@ -677,10 +677,10 @@ const SERVICE_OPTIONS = [
 function WhatsAppForm() {
   const [nome, setNome] = useState("");
   const [empresa, setEmpresa] = useState("");
-  const [servico, setServico] = useState(SERVICE_OPTIONS[0].value);
+  const [servico, setServico] = useState(SERVICE_OPTIONS[0]!.value);
 
   const selected =
-    SERVICE_OPTIONS.find((o) => o.value === servico) ?? SERVICE_OPTIONS[0];
+    SERVICE_OPTIONS.find((o) => o.value === servico) ?? SERVICE_OPTIONS[0]!;
 
   const mensagem = [
     `Olá, Davi! Aqui é ${nome.trim() || "[seu nome]"}${
