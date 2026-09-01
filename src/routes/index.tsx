@@ -175,43 +175,58 @@ function HeroSection() {
       </div>
 
       <div className="relative mx-auto max-w-[1400px] px-6 pb-24 pt-20 sm:pt-28">
-        <p className="animate-fade-up text-[11px] uppercase tracking-[0.4em] text-gold">
+        <p className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-[11px] uppercase tracking-[0.32em] text-gold-light">
+          <span className="h-1.5 w-1.5 animate-glow-pulse rounded-full bg-gold" />
           Portfólio · Direção digital
         </p>
 
-        <h1 className="font-display text-5xl font-semibold leading-tight tracking-tight sm:text-7xl lg:text-8xl mt-6 max-w-[18ch]">
-          <span
-            className="block animate-fade-up text-cream"
-            style={{ animationDelay: "120ms" }}
-          >
-            Marketing
+        <h1 className="font-display text-5xl font-semibold leading-[1.02] tracking-tight sm:text-7xl lg:text-8xl mt-6 max-w-[18ch]">
+          <span className="block overflow-hidden">
+            <span
+              className="block animate-word-in text-cream"
+              style={{ animationDelay: "120ms" }}
+            >
+              Marketing
+            </span>
           </span>
-          <span
-            className="block animate-fade-up text-transparent"
-            style={{ WebkitTextStroke: "1px #c9a84c", animationDelay: "240ms" }}
-          >
-            que vende
+          <span className="block overflow-hidden">
+            <span
+              className="animate-word-in animate-text-shine block"
+              style={{ animationDelay: "300ms" }}
+            >
+              que vende
+            </span>
           </span>
-          <span
-            className="block animate-fade-up text-cream/80"
-            style={{ animationDelay: "360ms" }}
-          >
-            sem gritar.
+          <span className="block overflow-hidden">
+            <span
+              className="block animate-word-in text-cream/85"
+              style={{ animationDelay: "480ms" }}
+            >
+              sem gritar.
+            </span>
           </span>
         </h1>
 
         <p
-          className="animate-fade-up mt-8 max-w-[46ch] text-base text-cream/70 sm:text-lg"
-          style={{ animationDelay: "480ms" }}
+          className="animate-fade-up mt-8 max-w-[46ch] text-base text-cream/85 sm:text-lg"
+          style={{ animationDelay: "660ms" }}
         >
           Landing pages, websites, vídeos e imagens desenhados para transformar
-          atenção em receita. Direção de arte cinematográfica, execução de
-          conversão.
+          atenção em receita.{" "}
+          <span className="text-gold-light">
+            Direção de arte cinematográfica, execução de conversão.
+          </span>
         </p>
         <p
-          className="animate-fade-up mt-4 max-w-[52ch] text-sm text-cream/50 sm:text-base"
-          style={{ animationDelay: "560ms" }}
+          className="animate-fade-up mt-4 max-w-[52ch] text-sm text-cream/65 sm:text-base"
+          style={{ animationDelay: "760ms" }}
         >
+          Na DP, cada projeto nasce de uma estratégia: entendo seu público,
+          desenho a experiência e entrego uma presença digital que trabalha
+          pela sua empresa 24 horas por dia — do primeiro clique ao fechamento
+          da venda.
+        </p>
+
           Na DP, cada projeto nasce de uma estratégia: entendo seu público,
           desenho a experiência e entrego uma presença digital que trabalha
           pela sua empresa 24 horas por dia — do primeiro clique ao fechamento
