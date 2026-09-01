@@ -102,12 +102,48 @@ function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-forest">
       <div
-        className="pointer-events-none absolute inset-0 animate-hero-bg"
+        className="pointer-events-none absolute inset-0 animate-hero-bg animate-hue-flow"
         style={{
           background:
-            "radial-gradient(130% 90% at 50% -10%, #14a37a 0%, #0a6a51 45%, #04352a 100%)",
+            "radial-gradient(130% 90% at 50% -10%, #17b489 0%, #0b7a5c 45%, #032a21 100%)",
         }}
       />
+      {/* anel de luz girando atrás do título */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-[42%] h-[720px] w-[720px] animate-spin-slower rounded-full opacity-25 blur-2xl"
+        style={{
+          background:
+            "conic-gradient(from 0deg, transparent 0%, rgba(255,220,140,.55) 12%, transparent 26%, transparent 55%, rgba(23,180,137,.6) 70%, transparent 85%)",
+          transform: "translate(-50%, -50%)",
+        }}
+      />
+      {/* partículas douradas subindo */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        {[
+          { left: "8%", size: 5, dur: 11, delay: 0 },
+          { left: "18%", size: 3, dur: 14, delay: 3 },
+          { left: "32%", size: 4, dur: 12, delay: 6 },
+          { left: "47%", size: 3, dur: 16, delay: 1.5 },
+          { left: "61%", size: 5, dur: 13, delay: 4.5 },
+          { left: "74%", size: 3, dur: 15, delay: 2 },
+          { left: "86%", size: 4, dur: 12, delay: 7 },
+          { left: "94%", size: 3, dur: 17, delay: 5 },
+        ].map((p, i) => (
+          <span
+            key={i}
+            className="animate-particle absolute bottom-[-4%] rounded-full"
+            style={{
+              left: p.left,
+              width: p.size,
+              height: p.size,
+              background: "#ffe9a8",
+              boxShadow: "0 0 12px 2px rgba(255,220,140,.75)",
+              animationDuration: `${p.dur}s`,
+              animationDelay: `${p.delay}s`,
+            }}
+          />
+        ))}
+      </div>
       {/* aurora dourada em movimento */}
       <div
         className="pointer-events-none absolute -inset-[20%] animate-aurora opacity-60 blur-3xl"
@@ -208,7 +244,7 @@ function HeroSection() {
         </h1>
 
         <p
-          className="animate-fade-up mt-8 max-w-[46ch] text-base text-cream/85 sm:text-lg"
+          className="animate-fade-up mt-8 max-w-[46ch] text-base text-cream sm:text-lg"
           style={{ animationDelay: "660ms" }}
         >
           Landing pages, websites, vídeos e imagens desenhados para transformar
@@ -218,7 +254,7 @@ function HeroSection() {
           </span>
         </p>
         <p
-          className="animate-fade-up mt-4 max-w-[52ch] text-sm text-cream/65 sm:text-base"
+          className="animate-fade-up mt-4 max-w-[52ch] text-sm text-cream/85 sm:text-base"
           style={{ animationDelay: "760ms" }}
         >
           Na DP, cada projeto nasce de uma estratégia: entendo seu público,
@@ -725,7 +761,10 @@ function WhatsAppForm() {
 
   return (
     <form
-      onSubmit={(e) => e.preventDefault()}
+      onSubmit={(e) => {
+        e.preventDefault();
+        window.open(href, "_blank", "noopener,noreferrer");
+      }}
       className="rounded-[18px] bg-cream/5 p-7 ring-1 ring-cream/15"
     >
       <div className="space-y-4">
@@ -770,23 +809,12 @@ function WhatsAppForm() {
           </select>
         </div>
 
-        <div className="rounded-[10px] bg-forest/40 p-4 ring-1 ring-cream/10">
-          <p className="text-[10px] uppercase tracking-[0.22em] text-gold">
-            Prévia da mensagem
-          </p>
-          <p className="mt-2 whitespace-pre-line text-xs leading-relaxed text-cream/60">
-            {mensagem}
-          </p>
-        </div>
-
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          type="submit"
           className="flex w-full items-center justify-center rounded-[10px] bg-gold px-4 py-3 text-sm font-semibold text-forest ring-1 ring-gold transition-transform hover:-translate-y-0.5"
         >
           Enviar pelo WhatsApp
-        </a>
+        </button>
         <p className="text-center text-xs text-cream/40">
           Sem spam. Resposta humanizada.
         </p>
