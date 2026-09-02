@@ -572,47 +572,158 @@ function PortfolioCard({
 
 function ResultsSection() {
   return (
-    <section className="bg-cream text-forest">
-      <div className="mx-auto max-w-[1400px] px-6 py-24">
-        <AnimatedSection className="max-w-[40ch]">
+    <section className="relative overflow-hidden bg-cream text-forest">
+      {/* gradiente vivo por trás */}
+      <div
+        className="pointer-events-none absolute inset-0 animate-hue-flow opacity-60"
+        style={{
+          background:
+            "radial-gradient(120% 120% at 50% 0%, rgba(13,122,95,.18) 0%, rgba(245,240,224,.55) 45%, rgba(245,240,224,1) 100%)",
+        }}
+      />
+      {/* partículas douradas e verdes subindo */}
+      <Particles count={55} className="opacity-60" />
+      {/* halo central sutil */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 animate-glow-pulse rounded-full blur-[120px]"
+        style={{ background: "rgba(201,168,76,.14)" }}
+      />
+
+      <div className="relative mx-auto max-w-[1400px] px-6 py-24">
+        <AnimatedSection className="max-w-[44ch]">
           <p className="text-[11px] uppercase tracking-[0.35em] text-moss">
             Ato III — Resultados
           </p>
           <h2 className="font-display text-4xl font-semibold leading-tight tracking-tight sm:text-5xl mt-4 max-w-[22ch]">
             Números, não promessas.
           </h2>
+          <p className="mt-5 max-w-[52ch] text-base text-forest/70">
+            Cada porcentagem aqui veio de um projeto real. Não são projeções —
+            são resultados que apareceram nos relatórios de clientes que decidiram
+            investir numa presença digital séria.
+          </p>
         </AnimatedSection>
 
         <AnimatedSection delay={150}>
-          <div className="mt-14 grid gap-px overflow-hidden rounded-[16px] bg-forest/15 ring-1 ring-black/5 sm:grid-cols-3">
-            <div className="bg-cream p-8">
-              <p className="font-display text-5xl font-semibold tracking-tight text-moss">
-                +140%
-              </p>
-              <p className="mt-3 text-sm text-forest/70">
-                de conversão média em landing pages de clientes ativos.
-              </p>
-            </div>
-            <div className="bg-cream p-8">
-              <p className="font-display text-5xl font-semibold tracking-tight text-moss">
-                4.2x
-              </p>
-              <p className="mt-3 text-sm text-forest/70">
-                de retorno sobre mídia em campanhas de vídeo.
-              </p>
-            </div>
-            <div className="bg-cream p-8">
-              <p className="font-display text-5xl font-semibold tracking-tight text-moss">
-                120+
-              </p>
-              <p className="mt-3 text-sm text-forest/70">
-                marcas que viraram história no mercado.
-              </p>
-            </div>
+          <div className="mt-14 grid gap-4 sm:grid-cols-3">
+            <ResultCard
+              prefix="+"
+              target={140}
+              suffix="%"
+              label="de conversão média em landing pages de clientes ativos."
+              delay={0}
+            />
+            <ResultCard
+              target={4.2}
+              suffix="x"
+              label="de retorno sobre mídia em campanhas de vídeo e imagem."
+              delay={120}
+              decimals={1}
+            />
+            <ResultCard
+              target={120}
+              suffix="+"
+              label="marcas que viraram história no mercado com a DP."
+              delay={240}
+            />
+          </div>
+        </AnimatedSection>
+
+        <AnimatedSection delay={300}>
+          <div className="mt-12 flex flex-col items-center justify-center gap-4 rounded-[16px] border border-forest/10 bg-forest/[0.03] px-6 py-8 text-center sm:flex-row sm:gap-6">
+            <span className="inline-flex h-10 w-10 animate-glow-pulse items-center justify-center rounded-full bg-gold/15 text-gold">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M12 2v4" />
+                <path d="m5 5 2.8 2.8" />
+                <path d="m19 5-2.8 2.8" />
+                <path d="M12 22a6 6 0 1 0 0-12 6 6 0 0 0 0 12" />
+              </svg>
+            </span>
+            <p className="max-w-[60ch] text-sm text-forest/80">
+              <span className="font-semibold text-forest">
+                Promessa da DP:
+              </span>{" "}
+              entregar uma presença digital que não apenas expõe sua empresa,
+              mas a posiciona como a escolha óbvia do seu cliente ideal — com
+              estética, velocidade e estratégia alinhadas.
+            </p>
           </div>
         </AnimatedSection>
       </div>
     </section>
+  );
+}
+
+function ResultCard({
+  prefix = "",
+  target,
+  suffix = "",
+  label,
+  delay = 0,
+  decimals = 0,
+}: {
+  prefix?: string;
+  target: number;
+  suffix?: string;
+  label: string;
+  delay?: number;
+  decimals?: number;
+}) {
+  const { ref, isInView } = useInView<HTMLDivElement>();
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    if (!isInView) return;
+    const duration = 1600;
+    const start = performance.now();
+    let raf = 0;
+
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 4);
+      setValue(Number((target * eased).toFixed(decimals)));
+      if (progress < 1) {
+        raf = requestAnimationFrame(tick);
+      }
+    };
+
+    const timer = setTimeout(() => {
+      raf = requestAnimationFrame(tick);
+    }, delay);
+
+    return () => {
+      clearTimeout(timer);
+      cancelAnimationFrame(raf);
+    };
+  }, [isInView, target, delay, decimals]);
+
+  return (
+    <div
+      ref={ref}
+      className="group relative overflow-hidden rounded-[16px] bg-cream p-8 ring-1 ring-black/5 transition-shadow duration-500 hover:shadow-[0_0_40px_rgba(201,168,76,.18)]"
+    >
+      {/* brilho passando no hover */}
+      <span
+        className="pointer-events-none absolute inset-0 -translate-x-full skew-x-[-20deg] bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:animate-shimmer-sweep"
+        aria-hidden="true"
+      />
+      <p className="font-display text-5xl font-semibold tracking-tight text-moss animate-glow-text">
+        {prefix}
+        {value}
+        {suffix}
+      </p>
+      <p className="relative mt-3 text-sm text-forest/70">{label}</p>
+    </div>
   );
 }
 
