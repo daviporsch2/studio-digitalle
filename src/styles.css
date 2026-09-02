@@ -340,6 +340,36 @@
   }
 }
 
+@keyframes shimmer-sweep {
+  0% {
+    transform: translateX(-120%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(220%) skewX(-20deg);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  33% {
+    transform: translateY(-14px) translateX(6px);
+  }
+  66% {
+    transform: translateY(8px) translateX(-4px);
+  }
+}
+
+@keyframes glow-text {
+  0%, 100% {
+    text-shadow: 0 0 18px rgba(201, 168, 76, 0.25);
+  }
+  50% {
+    text-shadow: 0 0 32px rgba(201, 168, 76, 0.55), 0 0 60px rgba(201, 168, 76, 0.25);
+  }
+}
+
 @utility animate-particle {
   animation: particle-rise linear infinite;
 }
@@ -350,6 +380,18 @@
 
 @utility animate-hue-flow {
   animation: hue-flow 14s ease-in-out infinite;
+}
+
+@utility animate-shimmer-sweep {
+  animation: shimmer-sweep 4s ease-in-out infinite;
+}
+
+@utility animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+@utility animate-glow-text {
+  animation: glow-text 4s ease-in-out infinite;
 }
 
 /* Hide Lovable badge */
