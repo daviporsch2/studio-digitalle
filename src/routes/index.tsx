@@ -498,7 +498,8 @@ const portfolioItems = [
 
 function PortfolioSection() {
   return (
-    <section id="portfolio" className="bg-moss text-cream">
+    <section id="portfolio" className="relative overflow-hidden bg-moss text-cream">
+      <Particles count={45} className="opacity-70" />
       <div className="mx-auto max-w-[1400px] px-6 py-24">
         <AnimatedSection className="flex items-end justify-between gap-6">
           <div className="max-w-[40ch]">
@@ -685,6 +686,7 @@ function ProcessSection() {
 function ContactSection() {
   return (
     <section id="contato" className="relative overflow-hidden bg-forest text-cream">
+      <Particles count={70} className="opacity-80" />
       <div
         className="pointer-events-none absolute inset-0"
         style={{
