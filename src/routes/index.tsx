@@ -98,16 +98,64 @@ function Index() {
   );
 }
 
+// Gera muitas partículas douradas espalhadas por toda a seção
+function Particles({
+  count = 60,
+  className = "",
+}: {
+  count?: number;
+  className?: string;
+}) {
+  const particles = Array.from({ length: count }, (_, i) => {
+    const seed = (i * 137.508) % 100; // ângulo dourado: distribuição uniforme
+    const seed2 = (i * 61.803) % 100;
+    return {
+      left: `${seed}%`,
+      size: 2 + ((i * 7) % 5),
+      dur: 8 + ((i * 13) % 14),
+      delay: (seed2 / 100) * 14,
+      opacity: 0.35 + ((i * 29) % 60) / 100,
+    };
+  });
+
+  return (
+    <div
+      className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}
+    >
+      {particles.map((p, i) => (
+        <span
+          key={i}
+          className="animate-particle absolute bottom-[-4%] rounded-full"
+          style={{
+            left: p.left,
+            width: p.size,
+            height: p.size,
+            opacity: p.opacity,
+            background: i % 3 === 0 ? "#9fe8cd" : "#ffe9a8",
+            boxShadow:
+              i % 3 === 0
+                ? "0 0 10px 2px rgba(159,232,205,.6)"
+                : "0 0 12px 2px rgba(255,220,140,.75)",
+            animationDuration: `${p.dur}s`,
+            animationDelay: `${p.delay}s`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
 function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-forest">
+    <section className="relative overflow-hidden" style={{ background: "#032a21" }}>
       <div
         className="pointer-events-none absolute inset-0 animate-hero-bg animate-hue-flow"
         style={{
           background:
-            "radial-gradient(130% 90% at 50% -10%, #17b489 0%, #0b7a5c 45%, #032a21 100%)",
+            "radial-gradient(140% 100% at 50% -20%, #0b7a5c 0%, #06463a 35%, #032a21 70%, #021f19 100%)",
         }}
       />
+      <Particles count={90} />
       {/* anel de luz girando atrás do título */}
       <div
         className="pointer-events-none absolute left-1/2 top-[42%] h-[720px] w-[720px] animate-spin-slower rounded-full opacity-25 blur-2xl"
@@ -117,33 +165,6 @@ function HeroSection() {
           transform: "translate(-50%, -50%)",
         }}
       />
-      {/* partículas douradas subindo */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        {[
-          { left: "8%", size: 5, dur: 11, delay: 0 },
-          { left: "18%", size: 3, dur: 14, delay: 3 },
-          { left: "32%", size: 4, dur: 12, delay: 6 },
-          { left: "47%", size: 3, dur: 16, delay: 1.5 },
-          { left: "61%", size: 5, dur: 13, delay: 4.5 },
-          { left: "74%", size: 3, dur: 15, delay: 2 },
-          { left: "86%", size: 4, dur: 12, delay: 7 },
-          { left: "94%", size: 3, dur: 17, delay: 5 },
-        ].map((p, i) => (
-          <span
-            key={i}
-            className="animate-particle absolute bottom-[-4%] rounded-full"
-            style={{
-              left: p.left,
-              width: p.size,
-              height: p.size,
-              background: "#ffe9a8",
-              boxShadow: "0 0 12px 2px rgba(255,220,140,.75)",
-              animationDuration: `${p.dur}s`,
-              animationDelay: `${p.delay}s`,
-            }}
-          />
-        ))}
-      </div>
       {/* aurora dourada em movimento */}
       <div
         className="pointer-events-none absolute -inset-[20%] animate-aurora opacity-60 blur-3xl"
@@ -477,7 +498,8 @@ const portfolioItems = [
 
 function PortfolioSection() {
   return (
-    <section id="portfolio" className="bg-moss text-cream">
+    <section id="portfolio" className="relative overflow-hidden bg-moss text-cream">
+      <Particles count={45} className="opacity-70" />
       <div className="mx-auto max-w-[1400px] px-6 py-24">
         <AnimatedSection className="flex items-end justify-between gap-6">
           <div className="max-w-[40ch]">
@@ -664,6 +686,7 @@ function ProcessSection() {
 function ContactSection() {
   return (
     <section id="contato" className="relative overflow-hidden bg-forest text-cream">
+      <Particles count={70} className="opacity-80" />
       <div
         className="pointer-events-none absolute inset-0"
         style={{
