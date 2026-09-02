@@ -165,33 +165,6 @@ function HeroSection() {
           transform: "translate(-50%, -50%)",
         }}
       />
-      {/* partículas douradas subindo */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        {[
-          { left: "8%", size: 5, dur: 11, delay: 0 },
-          { left: "18%", size: 3, dur: 14, delay: 3 },
-          { left: "32%", size: 4, dur: 12, delay: 6 },
-          { left: "47%", size: 3, dur: 16, delay: 1.5 },
-          { left: "61%", size: 5, dur: 13, delay: 4.5 },
-          { left: "74%", size: 3, dur: 15, delay: 2 },
-          { left: "86%", size: 4, dur: 12, delay: 7 },
-          { left: "94%", size: 3, dur: 17, delay: 5 },
-        ].map((p, i) => (
-          <span
-            key={i}
-            className="animate-particle absolute bottom-[-4%] rounded-full"
-            style={{
-              left: p.left,
-              width: p.size,
-              height: p.size,
-              background: "#ffe9a8",
-              boxShadow: "0 0 12px 2px rgba(255,220,140,.75)",
-              animationDuration: `${p.dur}s`,
-              animationDelay: `${p.delay}s`,
-            }}
-          />
-        ))}
-      </div>
       {/* aurora dourada em movimento */}
       <div
         className="pointer-events-none absolute -inset-[20%] animate-aurora opacity-60 blur-3xl"
