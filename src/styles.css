@@ -394,6 +394,97 @@
   animation: glow-text 4s ease-in-out infinite;
 }
 
+/* ---- Contact section: cinematic stage lights ---- */
+@keyframes spotlight-rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes spotlight-rotate-reverse {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: translate(-50%, -50%) scale(0.92);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.08);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.92);
+    opacity: 0.45;
+  }
+}
+
+@keyframes energy-ray {
+  0% {
+    opacity: 0.15;
+    transform: rotate(var(--ray-angle)) scaleY(0.96);
+  }
+  50% {
+    opacity: 0.45;
+    transform: rotate(var(--ray-angle)) scaleY(1.04);
+  }
+  100% {
+    opacity: 0.15;
+    transform: rotate(var(--ray-angle)) scaleY(0.96);
+  }
+}
+
+@keyframes contact-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes border-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px 4px rgba(201, 168, 76, 0.35);
+  }
+}
+
+@utility animate-spotlight-rotate {
+  animation: spotlight-rotate 28s linear infinite;
+}
+
+@utility animate-spotlight-rotate-reverse {
+  animation: spotlight-rotate-reverse 36s linear infinite;
+}
+
+@utility animate-pulse-ring {
+  animation: pulse-ring 5s ease-in-out infinite;
+}
+
+@utility animate-energy-ray {
+  animation: energy-ray 4s ease-in-out infinite;
+}
+
+@utility animate-contact-float {
+  animation: contact-float 6s ease-in-out infinite;
+}
+
+@utility animate-border-glow {
+  animation: border-glow 4s ease-in-out infinite;
+}
+
 /* Hide Lovable badge */
 #lovable-badge {
   display: none !important;
