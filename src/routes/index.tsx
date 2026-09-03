@@ -962,7 +962,19 @@ function WhatsAppForm() {
         </div>
         <div>
           <label className="text-[11px] uppercase tracking-[0.2em] text-cream/60">
-            O que precisa
+            Ramo da empresa
+          </label>
+          <input
+            type="text"
+            value={ramo}
+            onChange={(e) => setRamo(e.target.value)}
+            placeholder="Ex.: restaurante, clínica, loja..."
+            className="mt-1 w-full rounded-[10px] bg-forest/40 px-4 py-3 text-sm text-cream placeholder:text-cream/35 outline-none ring-1 ring-cream/15 focus:ring-gold"
+          />
+        </div>
+        <div>
+          <label className="text-[11px] uppercase tracking-[0.2em] text-cream/60">
+            O que você quer
           </label>
           <select
             value={servico}
@@ -970,8 +982,8 @@ function WhatsAppForm() {
             className="mt-1 w-full rounded-[10px] bg-forest/40 px-4 py-3 text-sm text-cream outline-none ring-1 ring-cream/15 focus:ring-gold"
           >
             {SERVICE_OPTIONS.map((o) => (
-              <option key={o.value} value={o.value} className="text-forest">
-                {o.value}
+              <option key={o} value={o} className="text-forest">
+                {o}
               </option>
             ))}
           </select>
