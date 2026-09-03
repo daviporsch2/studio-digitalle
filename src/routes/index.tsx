@@ -908,45 +908,21 @@ function ContactSection() {
 }
 
 const SERVICE_OPTIONS = [
-  {
-    value: "Landing page",
-    detail:
-      "uma landing page de alta conversão, com direção de arte cinematográfica e estrutura pensada para transformar visitante em cliente",
-  },
-  {
-    value: "Website institucional",
-    detail:
-      "um site institucional com design de sistema, performance e conteúdo que sustenta a marca por anos",
-  },
-  {
-    value: "Vídeo & imagens",
-    detail:
-      "produção de vídeos e imagens para redes sociais e anúncios, com estética premium que segura a atenção",
-  },
-  {
-    value: "Projeto completo",
-    detail:
-      "um projeto completo: estratégia, arte, produção de vídeo/imagem e lançamento da presença digital",
-  },
+  "Landing page",
+  "Website institucional",
+  "Vídeo & imagens",
+  "Projeto completo",
 ];
 
 function WhatsAppForm() {
   const [nome, setNome] = useState("");
   const [empresa, setEmpresa] = useState("");
-  const [servico, setServico] = useState(SERVICE_OPTIONS[0]!.value);
-
-  const selected =
-    SERVICE_OPTIONS.find((o) => o.value === servico) ?? SERVICE_OPTIONS[0]!;
+  const [ramo, setRamo] = useState("");
+  const [servico, setServico] = useState(SERVICE_OPTIONS[0]!);
 
   const mensagem = [
-    `Olá, Davi! Aqui é ${nome.trim() || "[seu nome]"}${
-      empresa.trim() ? `, da ${empresa.trim()}` : ""
-    }.`,
-    "",
-    `Vim pelo site da DP — Sua Presença Digital e tenho interesse em ${selected.value}.`,
-    `O que eu procuro: ${selected.detail}.`,
-    "",
-    "Pode me enviar um plano claro de como elevar minha presença digital e vender mais?",
+    `Olá! Aqui é ${nome.trim() || "[seu nome]"}${empresa.trim() ? `, da ${empresa.trim()}` : ""}${ramo.trim() ? ` (ramo: ${ramo.trim()})` : ""}.`,
+    `Vim pelo site da DP e tenho interesse em: ${servico}.`,
   ].join("\n");
 
   const href = `https://wa.me/5567996304930?text=${encodeURIComponent(mensagem)}`;
