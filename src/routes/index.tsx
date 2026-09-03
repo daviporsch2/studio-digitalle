@@ -158,12 +158,12 @@ function Particles({
 
 function HeroSection() {
   return (
-    <section className="relative overflow-hidden" style={{ background: "#032a21" }}>
+    <section className="relative overflow-hidden" style={{ background: "#010f0c" }}>
       <div
         className="pointer-events-none absolute inset-0 animate-hero-bg animate-hue-flow"
         style={{
           background:
-            "radial-gradient(140% 100% at 50% -20%, #0b7a5c 0%, #06463a 35%, #032a21 70%, #021f19 100%)",
+            "radial-gradient(140% 100% at 50% -20%, #0a5c46 0%, #04382e 35%, #011a14 70%, #010f0c 100%)",
         }}
       />
       <Particles count={90} />
