@@ -811,6 +811,7 @@ function ContactSection() {
   return (
     <section id="contato" className="relative overflow-hidden bg-forest text-cream">
       <Particles count={70} className="opacity-80" />
+      {/* base glow */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -818,6 +819,53 @@ function ContactSection() {
             "radial-gradient(120% 120% at 50% 120%, #0d7a5f 0%, #04352a 70%)",
         }}
       />
+      {/* holofote 1 girando */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[140%] w-[90%] animate-spotlight-rotate opacity-30"
+        style={{
+          background:
+            "conic-gradient(from 0deg, transparent 0%, transparent 30%, rgba(201,168,76,.22) 42%, transparent 54%, transparent 100%)",
+          transformOrigin: "center center",
+        }}
+      />
+      {/* holofote 2 girando sentido contrário */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[120%] w-[80%] animate-spotlight-rotate-reverse opacity-25"
+        style={{
+          background:
+            "conic-gradient(from 0deg, transparent 0%, transparent 56%, rgba(159,232,205,.18) 68%, transparent 80%, transparent 100%)",
+          transformOrigin: "center center",
+        }}
+      />
+      {/* raios de energia saindo do centro */}
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+        <div className="relative h-full w-full max-w-6xl">
+          {[...Array(8)].map((_, i) => {
+            const angle = i * 45;
+            return (
+              <span
+                key={i}
+                className="animate-energy-ray absolute left-1/2 top-1/2 h-[80%] w-[2px] origin-top"
+                style={{
+                  transform: `rotate(${angle}deg)`,
+                  background:
+                    "linear-gradient(180deg, transparent 0%, rgba(201,168,76,.55) 35%, rgba(159,232,205,.25) 70%, transparent 100%)",
+                  animationDelay: `${i * 0.3}s`,
+                }}
+              />
+            );
+          })}
+        </div>
+      </div>
+      {/* anel pulsante atrás do formulário */}
+      <div
+        className="pointer-events-none absolute left-[75%] top-1/2 hidden h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 animate-pulse-ring rounded-full border border-gold/30 lg:block"
+      />
+      <div
+        className="pointer-events-none absolute left-[75%] top-1/2 hidden h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 animate-pulse-ring rounded-full border border-gold/15 lg:block"
+        style={{ animationDelay: "1.2s" }}
+      />
+
       <div className="relative mx-auto max-w-[1400px] px-6 py-28">
         <div className="grid gap-12 lg:grid-cols-2">
           <AnimatedSection>
@@ -835,7 +883,7 @@ function ContactSection() {
               href="https://wa.me/5567996304930"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative mt-9 inline-flex items-center overflow-hidden rounded-full bg-gold px-8 py-4 text-base font-semibold text-forest ring-1 ring-gold transition-transform hover:-translate-y-0.5"
+              className="group relative mt-9 inline-flex items-center overflow-hidden rounded-full bg-gold px-8 py-4 text-base font-semibold text-forest ring-1 ring-gold transition-transform hover:-translate-y-0.5 animate-contact-float"
             >
               <span
                 className="absolute inset-0"
