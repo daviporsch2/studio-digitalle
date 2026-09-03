@@ -441,8 +441,9 @@ const services = [
 
 function ServicesSection() {
   return (
-    <section className="bg-cream text-forest">
-      <div className="mx-auto max-w-[1400px] px-6 py-24">
+    <section className="relative overflow-hidden bg-cream text-forest">
+      <Particles count={50} variant="dark" className="opacity-50" />
+      <div className="relative mx-auto max-w-[1400px] px-6 py-24">
         <AnimatedSection className="max-w-[40ch]">
           <p className="text-[11px] uppercase tracking-[0.35em] text-moss">
             Ato I — O que eu construo
@@ -812,8 +813,9 @@ const processSteps = [
 
 function ProcessSection() {
   return (
-    <section className="bg-cream text-forest">
-      <div className="mx-auto max-w-[1400px] px-6 pb-24">
+    <section className="relative overflow-hidden bg-cream text-forest">
+      <Particles count={45} variant="dark" className="opacity-50" />
+      <div className="relative mx-auto max-w-[1400px] px-6 pb-24">
         <AnimatedSection className="max-w-[48ch]">
           <p className="text-[11px] uppercase tracking-[0.35em] text-moss">
             Ato IV — O método
