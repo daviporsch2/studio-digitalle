@@ -147,9 +147,11 @@ function SiteParticles() {
 function Particles({
   count = 60,
   className = "",
+  variant = "light",
 }: {
   count?: number;
   className?: string;
+  variant?: "light" | "dark";
 }) {
   const particles = Array.from({ length: count }, (_, i) => {
     const seed = (i * 137.508) % 100; // ângulo dourado: distribuição uniforme
@@ -157,8 +159,8 @@ function Particles({
     return {
       left: `${seed}%`,
       size: 2 + ((i * 7) % 5),
-      dur: 8 + ((i * 13) % 14),
-      delay: (seed2 / 100) * 14,
+      dur: 5 + ((i * 13) % 8),
+      delay: (seed2 / 100) * 10,
       opacity: 0.35 + ((i * 29) % 60) / 100,
     };
   });
@@ -176,11 +178,20 @@ function Particles({
             width: p.size,
             height: p.size,
             opacity: p.opacity,
-            background: i % 3 === 0 ? "#9fe8cd" : "#ffe9a8",
+            background:
+              variant === "dark"
+                ? i % 3 === 0
+                  ? "#0d7a5f"
+                  : "#c9a84c"
+                : i % 3 === 0
+                  ? "#9fe8cd"
+                  : "#ffe9a8",
             boxShadow:
-              i % 3 === 0
-                ? "0 0 10px 2px rgba(159,232,205,.6)"
-                : "0 0 12px 2px rgba(255,220,140,.75)",
+              variant === "dark"
+                ? "0 0 8px 1px rgba(201,168,76,.45)"
+                : i % 3 === 0
+                  ? "0 0 10px 2px rgba(159,232,205,.6)"
+                  : "0 0 12px 2px rgba(255,220,140,.75)",
             animationDuration: `${p.dur}s`,
             animationDelay: `${p.delay}s`,
           }}
