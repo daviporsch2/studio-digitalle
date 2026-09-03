@@ -86,8 +86,6 @@ function AnimatedSection({
 function Index() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-background text-foreground">
-      {/* Partículas viajando pelo site inteiro, por cima de todas as seções */}
-      <SiteParticles />
       <HeroSection />
       <MarqueeSection />
       <ServicesSection />
@@ -97,49 +95,6 @@ function Index() {
       <ContactSection />
       <Footer />
     </main>
-  );
-}
-
-// Camada fixa de partículas que cruzam a tela inteira, do rodapé ao topo
-function SiteParticles() {
-  const particles = Array.from({ length: 110 }, (_, i) => {
-    const seed = (i * 137.508) % 100;
-    const seed2 = (i * 61.803) % 100;
-    return {
-      left: `${seed}%`,
-      size: 2 + ((i * 7) % 4),
-      dur: 7 + ((i * 11) % 8),
-      delay: (seed2 / 100) * 10,
-      opacity: 0.25 + ((i * 29) % 45) / 100,
-    };
-  });
-
-  return (
-    <div
-      aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-40 overflow-hidden"
-    >
-      {particles.map((p, i) => (
-        <span
-          key={i}
-          className="animate-particle absolute bottom-[-3%] rounded-full"
-          style={{
-            left: p.left,
-            width: p.size,
-            height: p.size,
-            opacity: p.opacity,
-            background:
-              i % 4 === 0 ? "#9fe8cd" : i % 4 === 1 ? "#c9a84c" : "#ffe9a8",
-            boxShadow:
-              i % 3 === 0
-                ? "0 0 8px 2px rgba(159,232,205,.55)"
-                : "0 0 10px 2px rgba(255,220,140,.65)",
-            animationDuration: `${p.dur}s`,
-            animationDelay: `${p.delay}s`,
-          }}
-        />
-      ))}
-    </div>
   );
 }
 
@@ -203,12 +158,12 @@ function Particles({
 
 function HeroSection() {
   return (
-    <section className="relative overflow-hidden" style={{ background: "#032a21" }}>
+    <section className="relative overflow-hidden" style={{ background: "#010f0c" }}>
       <div
         className="pointer-events-none absolute inset-0 animate-hero-bg animate-hue-flow"
         style={{
           background:
-            "radial-gradient(140% 100% at 50% -20%, #0b7a5c 0%, #06463a 35%, #032a21 70%, #021f19 100%)",
+            "radial-gradient(140% 100% at 50% -20%, #0a5c46 0%, #04382e 35%, #011a14 70%, #010f0c 100%)",
         }}
       />
       <Particles count={90} />
