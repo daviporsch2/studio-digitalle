@@ -86,6 +86,8 @@ function AnimatedSection({
 function Index() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-background text-foreground">
+      {/* Partículas viajando pelo site inteiro, por cima de todas as seções */}
+      <SiteParticles />
       <HeroSection />
       <MarqueeSection />
       <ServicesSection />
@@ -98,13 +100,58 @@ function Index() {
   );
 }
 
+// Camada fixa de partículas que cruzam a tela inteira, do rodapé ao topo
+function SiteParticles() {
+  const particles = Array.from({ length: 110 }, (_, i) => {
+    const seed = (i * 137.508) % 100;
+    const seed2 = (i * 61.803) % 100;
+    return {
+      left: `${seed}%`,
+      size: 2 + ((i * 7) % 4),
+      dur: 7 + ((i * 11) % 8),
+      delay: (seed2 / 100) * 10,
+      opacity: 0.25 + ((i * 29) % 45) / 100,
+    };
+  });
+
+  return (
+    <div
+      aria-hidden="true"
+      className="pointer-events-none fixed inset-0 z-40 overflow-hidden"
+    >
+      {particles.map((p, i) => (
+        <span
+          key={i}
+          className="animate-particle absolute bottom-[-3%] rounded-full"
+          style={{
+            left: p.left,
+            width: p.size,
+            height: p.size,
+            opacity: p.opacity,
+            background:
+              i % 4 === 0 ? "#9fe8cd" : i % 4 === 1 ? "#c9a84c" : "#ffe9a8",
+            boxShadow:
+              i % 3 === 0
+                ? "0 0 8px 2px rgba(159,232,205,.55)"
+                : "0 0 10px 2px rgba(255,220,140,.65)",
+            animationDuration: `${p.dur}s`,
+            animationDelay: `${p.delay}s`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
 // Gera muitas partículas douradas espalhadas por toda a seção
 function Particles({
   count = 60,
   className = "",
+  variant = "light",
 }: {
   count?: number;
   className?: string;
+  variant?: "light" | "dark";
 }) {
   const particles = Array.from({ length: count }, (_, i) => {
     const seed = (i * 137.508) % 100; // ângulo dourado: distribuição uniforme
@@ -112,8 +159,8 @@ function Particles({
     return {
       left: `${seed}%`,
       size: 2 + ((i * 7) % 5),
-      dur: 8 + ((i * 13) % 14),
-      delay: (seed2 / 100) * 14,
+      dur: 5 + ((i * 13) % 8),
+      delay: (seed2 / 100) * 10,
       opacity: 0.35 + ((i * 29) % 60) / 100,
     };
   });
@@ -131,11 +178,20 @@ function Particles({
             width: p.size,
             height: p.size,
             opacity: p.opacity,
-            background: i % 3 === 0 ? "#9fe8cd" : "#ffe9a8",
+            background:
+              variant === "dark"
+                ? i % 3 === 0
+                  ? "#0d7a5f"
+                  : "#c9a84c"
+                : i % 3 === 0
+                  ? "#9fe8cd"
+                  : "#ffe9a8",
             boxShadow:
-              i % 3 === 0
-                ? "0 0 10px 2px rgba(159,232,205,.6)"
-                : "0 0 12px 2px rgba(255,220,140,.75)",
+              variant === "dark"
+                ? "0 0 8px 1px rgba(201,168,76,.45)"
+                : i % 3 === 0
+                  ? "0 0 10px 2px rgba(159,232,205,.6)"
+                  : "0 0 12px 2px rgba(255,220,140,.75)",
             animationDuration: `${p.dur}s`,
             animationDelay: `${p.delay}s`,
           }}
@@ -385,8 +441,9 @@ const services = [
 
 function ServicesSection() {
   return (
-    <section className="bg-cream text-forest">
-      <div className="mx-auto max-w-[1400px] px-6 py-24">
+    <section className="relative overflow-hidden bg-cream text-forest">
+      <Particles count={50} variant="dark" className="opacity-50" />
+      <div className="relative mx-auto max-w-[1400px] px-6 py-24">
         <AnimatedSection className="max-w-[40ch]">
           <p className="text-[11px] uppercase tracking-[0.35em] text-moss">
             Ato I — O que eu construo
@@ -756,8 +813,9 @@ const processSteps = [
 
 function ProcessSection() {
   return (
-    <section className="bg-cream text-forest">
-      <div className="mx-auto max-w-[1400px] px-6 pb-24">
+    <section className="relative overflow-hidden bg-cream text-forest">
+      <Particles count={45} variant="dark" className="opacity-50" />
+      <div className="relative mx-auto max-w-[1400px] px-6 pb-24">
         <AnimatedSection className="max-w-[48ch]">
           <p className="text-[11px] uppercase tracking-[0.35em] text-moss">
             Ato IV — O método
@@ -850,45 +908,21 @@ function ContactSection() {
 }
 
 const SERVICE_OPTIONS = [
-  {
-    value: "Landing page",
-    detail:
-      "uma landing page de alta conversão, com direção de arte cinematográfica e estrutura pensada para transformar visitante em cliente",
-  },
-  {
-    value: "Website institucional",
-    detail:
-      "um site institucional com design de sistema, performance e conteúdo que sustenta a marca por anos",
-  },
-  {
-    value: "Vídeo & imagens",
-    detail:
-      "produção de vídeos e imagens para redes sociais e anúncios, com estética premium que segura a atenção",
-  },
-  {
-    value: "Projeto completo",
-    detail:
-      "um projeto completo: estratégia, arte, produção de vídeo/imagem e lançamento da presença digital",
-  },
+  "Landing page",
+  "Website institucional",
+  "Vídeo & imagens",
+  "Projeto completo",
 ];
 
 function WhatsAppForm() {
   const [nome, setNome] = useState("");
   const [empresa, setEmpresa] = useState("");
-  const [servico, setServico] = useState(SERVICE_OPTIONS[0]!.value);
-
-  const selected =
-    SERVICE_OPTIONS.find((o) => o.value === servico) ?? SERVICE_OPTIONS[0]!;
+  const [ramo, setRamo] = useState("");
+  const [servico, setServico] = useState(SERVICE_OPTIONS[0]!);
 
   const mensagem = [
-    `Olá, Davi! Aqui é ${nome.trim() || "[seu nome]"}${
-      empresa.trim() ? `, da ${empresa.trim()}` : ""
-    }.`,
-    "",
-    `Vim pelo site da DP — Sua Presença Digital e tenho interesse em ${selected.value}.`,
-    `O que eu procuro: ${selected.detail}.`,
-    "",
-    "Pode me enviar um plano claro de como elevar minha presença digital e vender mais?",
+    `Olá! Aqui é ${nome.trim() || "[seu nome]"}${empresa.trim() ? `, da ${empresa.trim()}` : ""}${ramo.trim() ? ` (ramo: ${ramo.trim()})` : ""}.`,
+    `Vim pelo site da DP e tenho interesse em: ${servico}.`,
   ].join("\n");
 
   const href = `https://wa.me/5567996304930?text=${encodeURIComponent(mensagem)}`;
@@ -928,7 +962,19 @@ function WhatsAppForm() {
         </div>
         <div>
           <label className="text-[11px] uppercase tracking-[0.2em] text-cream/60">
-            O que precisa
+            Ramo da empresa
+          </label>
+          <input
+            type="text"
+            value={ramo}
+            onChange={(e) => setRamo(e.target.value)}
+            placeholder="Ex.: restaurante, clínica, loja..."
+            className="mt-1 w-full rounded-[10px] bg-forest/40 px-4 py-3 text-sm text-cream placeholder:text-cream/35 outline-none ring-1 ring-cream/15 focus:ring-gold"
+          />
+        </div>
+        <div>
+          <label className="text-[11px] uppercase tracking-[0.2em] text-cream/60">
+            O que você quer
           </label>
           <select
             value={servico}
@@ -936,8 +982,8 @@ function WhatsAppForm() {
             className="mt-1 w-full rounded-[10px] bg-forest/40 px-4 py-3 text-sm text-cream outline-none ring-1 ring-cream/15 focus:ring-gold"
           >
             {SERVICE_OPTIONS.map((o) => (
-              <option key={o.value} value={o.value} className="text-forest">
-                {o.value}
+              <option key={o} value={o} className="text-forest">
+                {o}
               </option>
             ))}
           </select>
