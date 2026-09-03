@@ -840,18 +840,21 @@ function ContactSection() {
       {/* raios de energia saindo do centro */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
         <div className="relative h-full w-full max-w-6xl">
-          {[...Array(8)].map((_, i) => (
-            <span
-              key={i}
-              className="animate-energy-ray absolute left-1/2 top-1/2 h-[80%] w-[2px] origin-top"
-              style={{
-                "--ray-angle": `${i * 45}deg`,
-                background:
-                  "linear-gradient(180deg, transparent 0%, rgba(201,168,76,.55) 35%, rgba(159,232,205,.25) 70%, transparent 100%)",
-                animationDelay: `${i * 0.3}s`,
-              }}
-            />
-          ))}
+          {[...Array(8)].map((_, i) => {
+            const angle = i * 45;
+            return (
+              <span
+                key={i}
+                className="animate-energy-ray absolute left-1/2 top-1/2 h-[80%] w-[2px] origin-top"
+                style={{
+                  transform: `rotate(${angle}deg)`,
+                  background:
+                    "linear-gradient(180deg, transparent 0%, rgba(201,168,76,.55) 35%, rgba(159,232,205,.25) 70%, transparent 100%)",
+                  animationDelay: `${i * 0.3}s`,
+                }}
+              />
+            );
+          })}
         </div>
       </div>
       {/* anel pulsante atrás do formulário */}
